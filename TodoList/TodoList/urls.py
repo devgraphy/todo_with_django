@@ -1,4 +1,4 @@
-# from django.contrib import admin
+from django.contrib import admin
 from django.urls import path, include
 
 # 어떤 액션에 어떤 view의 어떤 template을 호출할 것인지
