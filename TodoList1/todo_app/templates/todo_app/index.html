@@ -48,7 +48,8 @@
             <div class="messageDiv">
                 <form action="./createTodo/" method="POST">{% csrf_token %}
                     <div class="input-group">
-                        <input id="todoContent" name="todoContent" type="text" class="form-control" placeholder="메모할 내용을 적어주세요">
+                        <!-- form method가 POST 방식이므로 name에 해당되는 input 요소에 내용이 담긴다.-->
+                        <input id="todoContent" name="Content" type="text" class="form-control" placeholder="메모할 내용을 적어주세요">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="submit">메모하기!</button>
                         </span>
@@ -59,10 +60,10 @@
             <div class="toDoDiv">
                 <ul class="list-group">
                     {% for todo in todos %}
-                    <form action="" method="GET">
+                    <form action="./deleteTodo/" method="GET">
                         <div class="input-group" name='todo1'>
                             <li class="list-group-item">{{ todo.content }}</li>
-                            <input type="hidden" id="todoNum" name="todoNum" value="{{ todo.id }}"></input>
+                            <input type="hidden" id="id" name="id" value="{{ todo.id }}"></input>  <!--id, name -> "id" 로 변경-->
                             <span class="input-group-addon">
                                 <button type="submit" class="custom-btn btn btn-danger">완료</button>
                          </span>
